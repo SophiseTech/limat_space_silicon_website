@@ -9,6 +9,17 @@ $(function() {
         $('.preloader').delay(500).fadeOut(500);
 
     });
+
+    var hashParams = window.location.hash.substr(1).split('&');
+    if(hashParams.length > 0 && hashParams[0].includes('product_name')){
+        console.log(hashParams);
+        document.getElementById("contact").scrollIntoView();
+        for(var i = 0; i < hashParams.length; i++){
+            var p = hashParams[i].split('=');
+            document.getElementById(p[0]).value = decodeURIComponent(p[1]);;
+        }
+    }
+
     
     
     //===== Mobile Menu 

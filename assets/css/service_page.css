@@ -6,6 +6,11 @@ body {
   color: #777; 
   margin: 0;
   padding: 0;
+  margin-bottom: 5% !important;
+}
+.header-area{
+  padding: 0 !important;
+  transition: .5s !important;
 }
 .services-top{
   display: flex;
@@ -41,4 +46,10 @@ body {
 }
 .service-content p span{
   color: #fe7865;
+}
+.content span{
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

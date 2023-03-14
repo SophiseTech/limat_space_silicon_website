@@ -30,7 +30,7 @@
   background: white !important;
 }
 .blob{
-  background-image: url('../Screenshot\ \(401\).png');
+  background-image: url('../photo_2023-03-14_16-57-46.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -158,9 +158,9 @@
   width:100%;
 } */
 .cont-prod img{
-  width: 100%;
+  width: auto;
   border-radius: 5px;
-  height: 100%;
+  height: 14em;
   transition: .5s ease-in-out;
 }
 
@@ -290,6 +290,10 @@
   }
   .cont-prod{
     grid-template-columns: 1fr;
+  }
+  .cont-prod img{
+    width: 100%;
+    height: auto;
   }
 }
 
