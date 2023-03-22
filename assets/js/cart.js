@@ -2,10 +2,11 @@ var shoppingCart = (function() {
 
   cart = [];
 
-  function Item(name, price, count) {
+  function Item(name, price,poster, count) {
     this.name = name;
     this.price = price;
     this.count = count;
+    this.poster = poster;
   }
   
   // Save cart
@@ -28,7 +29,7 @@ var shoppingCart = (function() {
   var obj = {};
   
   // Add to cart
-  obj.addItemToCart = function(name, price, count) {
+  obj.addItemToCart = function(name, price,poster, count) {
     for(var item in cart) {
       if(cart[item].name === name) {
         cart[item].count ++;
@@ -36,7 +37,7 @@ var shoppingCart = (function() {
         return;
       }
     }
-    var item = new Item(name, price, count);
+    var item = new Item(name, price,poster, count);
     cart.push(item);
     saveCart();
   }
@@ -138,10 +139,12 @@ var shoppingCart = (function() {
 // ***************************************** 
 // Add item
 $('.add-to-cart').click(function(event) {
+  console.log('something');
   event.preventDefault();
   var name = $(this).data('name');
   var price = Number($(this).data('price'));
-  shoppingCart.addItemToCart(name, price, 1);
+  var poster = $(this).data('poster')
+  shoppingCart.addItemToCart(name, price,poster, 1);
   displayCart();
 });
 
@@ -157,21 +160,41 @@ function displayCart() {
   
   var output = "";
   for(var i in cartArray) {
+
+    output += `<div class="cartItem row align-items-center p-2 mb-3">
+    <div class="col-3 p-0 d-none d-md-block">
+      <img class="w-100 rounded" src="${cartArray[i].poster}" alt="art image">
+    </div>
+    <div class="col-5 col-md-5">
+      <p class="pl-1 m-0 font-weight-bold text-center cart-item-title">${cartArray[i].name}</p>
+    </div>
+    <div class="col-4 col-md-2 d-flex align-items-center gap-2">
+      <button class='minus-item input-group-addon' data-name="${cartArray[i].name}">-</button>
+      <p class="cartItemQuantity p-1 text-center">${cartArray[i].count}</p>
+      <button class='plus-item input-group-addon' data-name="${cartArray[i].name}">+</button>
+      <button class='delete-item input-group-addon' data-name="${cartArray[i].name}">X</button></td>
+    </div>
+    <div class="col-3 col-md-2">
+      <p id="cartItem1Price" class="text-end">₹ ${cartArray[i].price * cartArray[i].count}</p>
+    </div>
+  </div>`
    
-    output += "<tr>"
-      + "<td>" + cartArray[i].name + "</td>" 
-      + "<td>(" + cartArray[i].price + ")</td>"
-      + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
-      + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
-      + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
-      + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
-      + " = " 
-      + "<td>" + cartArray[i].total + "</td>" 
-      +  "</tr>";
+    // output += "<tr>"
+    //   + "<td>" + cartArray[i].name + "</td>" 
+    //   + "<td>(" + cartArray[i].price + ")</td>"
+    //   + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+    //   + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+    //   + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+    //   + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+    //   + " = " 
+    //   + "<td>" + cartArray[i].total + "</td>" 
+    //   +  "</tr>";
   }
   console.log(output);
   $('.show-cart').html(output);
-  $('.total-cart').html(shoppingCart.totalCart());
+  $('.subtotal-cart').html('₹ '+shoppingCart.totalCart());
+  $('.tax-cart').html('₹ '+(shoppingCart.totalCart()*.18).toFixed(2));
+  $('.total-cart').html('₹ '+(shoppingCart.totalCart()*.18 + shoppingCart.totalCart()));
   $('.total-count').html(shoppingCart.totalCount());
 }
 

@@ -5,25 +5,119 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=], initial-scale=1.0">
   <title>Cart</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/cart.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  
+
 </head>
 <body>
 
-  <table class="show-cart">
+  <header class="header-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand col-lg-2 col-6 " href="index.html">
+                        <img src="assets/images/logo_black.png" style="max-width: 100%;" alt="Logo">
+                        <!-- <h1>Space Root</h1> -->
+                    </a> <!-- Logo -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="bar-icon"></span>
+                        <span class="bar-icon"></span>
+                        <span class="bar-icon"></span>
+                    </button>
 
-  </table>
-  <p class="total-cart">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul id="nav" class="navbar-nav ml-45">
+                            <li class="nav-item">
+                                <a data-scroll-nav="0" href="/index.html#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a data-scroll-nav="0" href="/index.html#gallery">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a data-scroll-nav="0" href="/index.html#about">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a data-scroll-nav="0" href="/index.html#product">Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a data-scroll-nav="0" href="/index.html#service">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a data-scroll-nav="0" href="/index.html#testimonial">Testimonial</a>
+                            </li>
+                                <li class="nav-item">
+                                <a data-scroll-nav="0" href="/index.html#contact">Contact</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a data-scroll-nav="0" href="/cart.html">Cart</a>
+                            </li>
+                        </ul> <!-- navbar nav -->
+                    </div>
+                </nav> <!-- navbar -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</header>
+<main id="cart" style="margin-top: 4em !important;">
+  <h1 style="text-align: start; color: #fe7865; font-size: 40px;">Your Cart</h1>
+  <div class="container-fluid">
+    <div class="row align-items-start justify-content-center">
+      <div class="col-11 col-sm-8 items show-cart">
+        <!--1-->
+        
+      </div>
+      <div class="col-11 col-sm-4 py-3 proceed form">
+        <div class="row m-0 align-items-center">
+          <div class="col-sm-8 col-6 p-0">
+            <h6>Subtotal</h6>
+          </div>
+          <div class="col-sm-4 p-0 col-6">
+            <p id="subtotal " class="subtotal-cart m-0 text-end"></p>
+          </div>
+        </div>
+        <div class="row m-0 align-items-center">
+          <div class="col-sm-8 p-0 m-0 col-6">
+            <h6 class="m-0">Tax</h6>
+          </div>
+          <div class="col-sm-4 p-0 col-6">
+            <p id="tax" class="tax-cart m-0 text-end"></p>
+          </div>
+        </div>
+        <hr>
+        <div class="row mx-0 mb-2 align-items-center">
+          <div class="col-sm-8 p-0 d-inline col-6">
+            <h5 >Total</h5>
+          </div>
+          <div class="col-sm-4 p-0 col-6">
+            <p id="total" class="total-cart text-end"></p>
+          </div>
+        </div>
+        <a href="#"><button id="btn-checkout" class="shopnow"><span>Checkout</span></button></a>
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
+<footer class="container">
+</footer>
 
-  </p>
-  <p class="total-count">
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <!--====== Bootstrap js ======-->
+    <script src="assets/js/bootstrap.min.js"></script>
 
-  </p>
-  <button class="clear-cart">Clear Cart</button>
+    
+    <!--====== Main js ======-->
+    <script src="assets/js/main.js"></script>
 
-
-  <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-  <script src="assets/js/cart.js"></script>
-  <script>
-    displayCart()
-  </script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+      displayCart()
+    </script>
 </body>
 </html>
