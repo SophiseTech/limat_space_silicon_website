@@ -145,6 +145,7 @@ $('.add-to-cart').click(function(event) {
   var price = Number($(this).data('price'));
   var poster = $(this).data('poster')
   shoppingCart.addItemToCart(name, price,poster, 1);
+  alert("Item added to cart successfully.")
   displayCart();
 });
 
